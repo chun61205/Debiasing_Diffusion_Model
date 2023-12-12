@@ -5,7 +5,7 @@ import streamlit as st
 
 from demo_model import ST_MODEL_DEMOS
 from demo_experiments import ST_EXPS_DEMOS
-from demo_result import ST_RESULTS_DEMOS
+from demo_results import ST_RESULTS_DEMOS
 
 
 def main():
