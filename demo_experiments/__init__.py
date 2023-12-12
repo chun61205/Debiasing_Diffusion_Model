@@ -4,7 +4,7 @@ from .map import ST_MAP_DEMOS
 from .pie import ST_PIE_DEMOS
 from .graph import ST_GRAPH_DEMOS
 
-ST_PY_DEMOS = {
+ST_EXP_DEMOS = {
     **ST_BAR_DEMOS,
     **ST_LINE_DEMOS,
     **ST_MAP_DEMOS,

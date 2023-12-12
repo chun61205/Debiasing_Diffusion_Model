@@ -3,8 +3,8 @@ import textwrap
 
 import streamlit as st
 
-from demo_echarts import ST_DEMOS
-from demo_pyecharts import ST_PY_DEMOS
+from demo_model import ST_MODEL_DEMOS
+from demo_experiments import ST_EXP_DEMOS
 
 
 def main():
@@ -19,18 +19,18 @@ def main():
         )
 
         page_options = (
-            list(ST_PY_DEMOS.keys())
-            if selected_api == "pyecharts"
-            else list(ST_DEMOS.keys())
+            list(ST_MODEL_DEMOS.keys())
+            if selected_api == "model"
+            else list(ST_MODEL_DEMOS.keys())
         )
         selected_page = st.selectbox(
             label="Choose an example",
             options=page_options,
         )
         demo, url = (
-            ST_DEMOS[selected_page]
-            if selected_api == "echarts"
-            else ST_PY_DEMOS[selected_page]
+            ST_EXP_DEMOS[selected_page]
+            if selected_api == "experiments"
+            else ST_EXP_DEMOS[selected_page]
         )
 
         if selected_api == "echarts":
@@ -56,7 +56,7 @@ def main():
 
 if __name__ == "__main__":
     st.set_page_config(
-        page_title="Streamlit ECharts Demo", page_icon=":chart_with_upwards_trend:"
+        page_title="De-Biasing Diffusion Model Demo", page_icon=":chart_with_upwards_trend:"
     )
     main()
     with st.sidebar:

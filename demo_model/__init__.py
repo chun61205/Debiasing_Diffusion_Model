@@ -22,7 +22,7 @@ from .themeriver import ST_THEMERIVER_DEMOS
 from .tree import ST_TREE_DEMOS
 from .treemap import ST_TREEMAP_DEMOS
 
-ST_DEMOS = {
+ST_MODEL_DEMOS = {
     **ST_LINE_DEMOS,
     **ST_BAR_DEMOS,
     **ST_PIE_DEMOS,
