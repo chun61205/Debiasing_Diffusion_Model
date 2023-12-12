@@ -4,7 +4,8 @@ import textwrap
 import streamlit as st
 
 from demo_model import ST_MODEL_DEMOS
-from demo_experiments import ST_EXP_DEMOS
+from demo_experiments import ST_EXPS_DEMOS
+from demo_result import ST_RESULTS_DEMOS
 
 
 def main():
@@ -18,19 +19,22 @@ def main():
             options=api_options,
         )
 
-        page_options = (
-            list(ST_MODEL_DEMOS.keys())
-            if selected_api == "model"
-            else list(ST_MODEL_DEMOS.keys())
-        )
+        api_to_demo_dict = {
+            "model": ST_MODEL_DEMOS,
+            "experiments": ST_EXPS_DEMOS,
+            "results": ST_RESULTS_DEMOS
+        }
+
+        page_options = list(api_to_demo_dict.get(selected_api, {}).keys())
+
         selected_page = st.selectbox(
             label="Choose an example",
             options=page_options,
         )
         demo, url = (
-            ST_EXP_DEMOS[selected_page]
+            ST_EXPS_DEMOS[selected_page]
             if selected_api == "experiments"
-            else ST_EXP_DEMOS[selected_page]
+            else ST_EXPS_DEMOS[selected_page]
         )
 
         if selected_api == "echarts":
@@ -56,7 +60,7 @@ def main():
 
 if __name__ == "__main__":
     st.set_page_config(
-        page_title="De-Biasing Diffusion Model Demo", page_icon=":chart_with_upwards_trend:"
+        page_title="De-Biasing Diffusion Model", page_icon=":chart_with_upwards_trend:"
     )
     main()
     with st.sidebar:
