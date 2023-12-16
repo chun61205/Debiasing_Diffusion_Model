@@ -33,8 +33,6 @@ def main():
         )
         demo, url = (
             ST_EXPS_DEMOS[selected_page]
-            if selected_api == "experiments"
-            else ST_EXPS_DEMOS[selected_page]
         )
 
         if selected_api == "echarts":
