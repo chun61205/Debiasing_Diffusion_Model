@@ -24,6 +24,7 @@ def main():
             "experiments": ST_EXPS_DEMOS,
             "results": ST_RESULTS_DEMOS
         }
+        selected_demo_dict = api_to_demo_dict[selected_api]
 
         page_options = list(api_to_demo_dict.get(selected_api, {}).keys())
 
@@ -31,14 +32,8 @@ def main():
             label="Choose an example",
             options=page_options,
         )
-        demo, url = (
-            if selected_api == "model":
-                ST_MODEL_DEMOS[selected_page]
-            elif selected_api == "experiments":
-                ST_EXPS_DEMOS[selected_page]
-            elif selected_api == "results":
-                ST_RESULTS_DEMOS[selected_page]
-        )
+
+        demo, url = selected_demo_dict[selected_page]
 
         if selected_api == "echarts":
             st.caption(
