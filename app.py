@@ -32,7 +32,12 @@ def main():
             options=page_options,
         )
         demo, url = (
-            ST_EXPS_DEMOS[selected_page]
+            if selected_api == "model":
+                ST_MODEL_DEMOS[selected_page]
+            elif selected_api == "experiments":
+                ST_EXPS_DEMOS[selected_page]
+            elif selected_api == "results":
+                ST_RESULTS_DEMOS[selected_page]
         )
 
         if selected_api == "echarts":
