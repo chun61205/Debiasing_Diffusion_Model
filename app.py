@@ -9,8 +9,6 @@ from demo_results import ST_RESULTS_DEMOS
 
 
 def main():
-    st.title("Model")
-
     with st.sidebar:
         st.header("Configuration")
         api_options = ("model", "experiments", "results")
