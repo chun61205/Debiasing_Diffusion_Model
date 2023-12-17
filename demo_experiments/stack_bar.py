@@ -14,7 +14,6 @@ def dataset1():
             title_opts=opts.TitleOpts(
                 title="Male and Female Proportions at Different Alpha Values",
                 subtitle="A stacked bar chart",
-                pos_top="1%",  # Increase this value to move the title higher
             ),
             legend_opts=opts.LegendOpts(
                 pos_top="10%",  # Increase this value to move the legend below the title
