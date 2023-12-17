@@ -16,7 +16,7 @@ def dataset1():
                 subtitle="A stacked bar chart",
             ),
             legend_opts=opts.LegendOpts(
-                pos_top="50%",
+                pos_top="10%",
             ),
             yaxis_opts=opts.AxisOpts(
                 name_gap=40, 
