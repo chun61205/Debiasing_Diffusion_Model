@@ -1,17 +1,15 @@
-import inspect
-import textwrap
-
 import streamlit as st
 
 from demo_model import ST_MODEL_DEMOS
 from demo_experiments import ST_EXPS_DEMOS
 from demo_results import ST_RESULTS_DEMOS
+from demo_examples import ST_EXAMPLES_DEMOS
 
 
 def main():
     with st.sidebar:
         st.header("Configuration")
-        api_options = ("model", "experiments", "results")
+        api_options = ("model", "experiments", "results", "examples")
         selected_api = st.selectbox(
             label="Options",
             options=api_options,
@@ -20,7 +18,8 @@ def main():
         api_to_demo_dict = {
             "model": ST_MODEL_DEMOS,
             "experiments": ST_EXPS_DEMOS,
-            "results": ST_RESULTS_DEMOS
+            "results": ST_RESULTS_DEMOS,
+            "examples": ST_EXAMPLES_DEMOS,
         }
         selected_demo_dict = api_to_demo_dict[selected_api]
 
@@ -39,6 +38,8 @@ def main():
         st.title("Experiments")
     elif selected_api == "results":
         st.title("Results")
+    elif selected_api == "examples":
+        st.title("Examples")
 
     demo()
 
