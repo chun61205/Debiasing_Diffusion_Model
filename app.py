@@ -16,7 +16,7 @@ def main():
             label="Options",
             options=api_options,
         )
-
+        st.title("Model")
         if selected_api == "model":
             st.title("Model")
         elif selected_api == "experiments":
