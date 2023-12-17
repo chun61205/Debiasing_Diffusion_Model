@@ -35,8 +35,8 @@ def dataset2():
     b = (
         Bar()
         .add_xaxis(["0", "0.01", "0.05", "0.1"])  # Alpha values as categories
-        .add_yaxis("Male", [0.36, 0.39, 0.58, 0.6], stack="stack1", color='blue')  # Male proportions, stacked
-        .add_yaxis("Female", [0.64, 0.61, 0.42, 0.4], stack="stack1", color='pink')  # Female proportions, stacked
+        .add_yaxis("Male", [0.8, 0.89, 0.64, 0.9], stack="stack1", color='blue')  # Male proportions, stacked
+        .add_yaxis("Female", [0.2, 0.11, 0.36, 0.1], stack="stack1", color='pink')  # Female proportions, stacked
         .set_global_opts(
             title_opts=opts.TitleOpts(
                 title="Male and Female Proportions at Different Alpha Values",
