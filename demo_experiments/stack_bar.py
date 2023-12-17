@@ -40,7 +40,7 @@ def dataset2():
         .set_global_opts(
             title_opts=opts.TitleOpts(
                 title="Male and Female Proportions at Different Alpha Values",
-                subtitle="male : female = 1 : 4 (training dataset)",
+                subtitle="male : female = 4 : 1 (training dataset)",
             ),
             legend_opts=opts.LegendOpts(
                 pos_top="10%",
