@@ -5,7 +5,6 @@ from streamlit_echarts import st_pyecharts
 
 # Male : Female = 1 : 4
 def dataset1():
-    print("TEST")
     b = (
         Bar()
         .add_xaxis(["0", "0.01", "0.05", "0.1"])  # Alpha values as categories
