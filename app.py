@@ -21,7 +21,7 @@ def main():
 
         api_to_demo_dict = {
             "model": ST_MODEL_DEMOS,
-            "experiments": ST_MODEL_DEMOS,
+            "experiments": ST_EXPS_DEMOS,
             "results": ST_RESULTS_DEMOS
         }
         selected_demo_dict = api_to_demo_dict[selected_api]
