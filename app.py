@@ -9,6 +9,8 @@ from demo_results import ST_RESULTS_DEMOS
 
 
 def main():
+    st.title("Model")
+
     with st.sidebar:
         st.header("Configuration")
         api_options = ("model", "experiments", "results")
@@ -16,13 +18,6 @@ def main():
             label="Options",
             options=api_options,
         )
-        st.title("Model")
-        if selected_api == "model":
-            st.title("Model")
-        elif selected_api == "experiments":
-            st.title("Experiments")
-        elif selected_api == "results":
-            st.title("Results")
 
         api_to_demo_dict = {
             "model": ST_MODEL_DEMOS,
@@ -41,6 +36,13 @@ def main():
         demo, url = selected_demo_dict[selected_page]
 
     demo()
+
+    if selected_api == "model":
+        st.title("Model")
+    elif selected_api == "experiments":
+        st.title("Experiments")
+    elif selected_api == "results":
+        st.title("Results")
 
     st.markdown(f"Credit: {url}")
 
