@@ -33,14 +33,14 @@ def main():
 
         demo, url = selected_demo_dict[selected_page]
 
-    demo()
-
     if selected_api == "model":
         st.title("Model")
     elif selected_api == "experiments":
         st.title("Experiments")
     elif selected_api == "results":
         st.title("Results")
+
+    demo()
 
     st.markdown(f"Credit: {url}")
 
