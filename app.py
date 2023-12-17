@@ -9,8 +9,6 @@ from demo_results import ST_RESULTS_DEMOS
 
 
 def main():
-    st.title("Streamlit ECharts Demo")
-
     with st.sidebar:
         st.header("Configuration")
         api_options = ("model", "experiments", "results")
@@ -18,6 +16,13 @@ def main():
             label="Options",
             options=api_options,
         )
+
+        if api_options == "model":
+            st.title("Model")
+        elif api_options == "experiments":
+            st.title("Experiments")
+        elif api_options == "results":
+            st.title("Results")
 
         api_to_demo_dict = {
             "model": ST_MODEL_DEMOS,
