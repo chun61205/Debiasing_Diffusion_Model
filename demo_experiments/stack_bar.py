@@ -16,13 +16,13 @@ def dataset1():
                 subtitle="A stacked bar chart",
             ),
             legend_opts=opts.LegendOpts(
-                pos_top="10%",  # Increase this value to move the legend below the title
+                pos_top="50%",
             ),
             yaxis_opts=opts.AxisOpts(
-                name_gap=40,  # Adjust the gap between the y-axis name and the axis line
+                name_gap=40, 
                 axislabel_opts=opts.LabelOpts(
                     font_size=14,
-                    margin=15,  # Adjust the margin to ensure labels don't overlap with axis line
+                    margin=15,
                 ),
             ),
         )
