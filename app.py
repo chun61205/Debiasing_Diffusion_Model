@@ -17,11 +17,11 @@ def main():
             options=api_options,
         )
 
-        if api_options == "model":
+        if selected_api == "model":
             st.title("Model")
-        elif api_options == "experiments":
+        elif selected_api == "experiments":
             st.title("Experiments")
-        elif api_options == "results":
+        elif selected_api == "results":
             st.title("Results")
 
         api_to_demo_dict = {
