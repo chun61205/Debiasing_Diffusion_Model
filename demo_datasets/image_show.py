@@ -13,7 +13,7 @@ def get_random_image(dataset_path):
 def dataset1():
     st.header("Male : Female = 1 : 4")
     dataset_path = './demo_datasets/images/dataset1'
-    if st.button('Randomize Image', key='randomize1') or 'dataset1_image' not in st.session_state:
+    if st.button('Refresh', key='refresh1') or 'dataset1_image' not in st.session_state:
         st.session_state['dataset1_image'] = get_random_image(dataset_path)
     st.image(st.session_state['dataset1_image'])
 
@@ -21,7 +21,7 @@ def dataset1():
 def dataset2():
     st.header("Male : Female = 4 : 1")
     dataset_path = './demo_datasets/images/dataset2'
-    if st.button('Randomize Image', key='randomize2') or 'dataset2_image' not in st.session_state:
+    if st.button('Refresh', key='refresh2') or 'dataset2_image' not in st.session_state:
         st.session_state['dataset2_image'] = get_random_image(dataset_path)
     st.image(st.session_state['dataset2_image'])
 
