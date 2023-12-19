@@ -25,6 +25,13 @@ def dataset2():
         st.session_state['dataset2_image'] = get_random_image(dataset_path)
     st.image(st.session_state['dataset2_image'])
 
+def dataset3():
+    st.header("Male : Female = 1 : 1")
+    dataset_path = './demo_datasets/images/dataset3'
+    if st.button('Refresh', key='refresh3') or 'dataset3_image' not in st.session_state:
+        st.session_state['dataset3_image'] = get_random_image(dataset_path)
+    st.image(st.session_state['dataset3_image'])
+
 ST_IMAGE_SHOW_DEMOS = {
     "Male : Female = 1 : 4": (
         dataset1,
@@ -32,6 +39,10 @@ ST_IMAGE_SHOW_DEMOS = {
     ),
     "Male : Female = 4 : 1": (
         dataset2,
+        "https://github.com/switchablenorms/CelebAMask-HQ",
+    ),
+    "Male : Female = 1 : 1": (
+        dataset3,
         "https://github.com/switchablenorms/CelebAMask-HQ",
     )
 }
