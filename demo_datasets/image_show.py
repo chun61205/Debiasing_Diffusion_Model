@@ -28,10 +28,10 @@ def dataset2():
 ST_IMAGE_SHOW_DEMOS = {
     "Male : Female = 1 : 4": (
         dataset1,
-        st.markdown("[CelebAMask-HQ](https://github.com/switchablenorms/CelebAMask-HQ)"),
+        "https://github.com/switchablenorms/CelebAMask-HQ",
     ),
     "Male : Female = 4 : 1": (
         dataset2,
-        st.markdown("[CelebAMask-HQ](https://github.com/switchablenorms/CelebAMask-HQ)"),
+        "https://github.com/switchablenorms/CelebAMask-HQ",
     )
 }
