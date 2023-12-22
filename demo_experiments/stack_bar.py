@@ -22,15 +22,14 @@ def dataset1():
             ),
             yaxis_opts=opts.AxisOpts(
                 name="Proportion(%)",
-                name_gap=40, 
+                name_gap=25,  # Adjust this to move the y-axis label to the left
                 axislabel_opts=opts.LabelOpts(
-                    font_size=14,
-                    margin=15,
-                    formatter=JsCode("function(value){return value * 100}")  # Convert proportion to percentage
+                    font_size=12,  # Adjust label font size if necessary
+                    formatter=JsCode("function(value){return value * 100;}")  # Convert proportion to percentage
                 ),
             ),
             xaxis_opts=opts.AxisOpts(
-                name=r"\alpha",  # Here we're setting the x-axis label
+                name="α",  # Here we're setting the x-axis label
                 name_location="middle",
                 name_gap=30
             ),
@@ -56,11 +55,17 @@ def dataset2():
                 pos_top="10%",
             ),
             yaxis_opts=opts.AxisOpts(
-                name_gap=40, 
+                name="Proportion(%)",
+                name_gap=25,  # Adjust this to move the y-axis label to the left
                 axislabel_opts=opts.LabelOpts(
-                    font_size=14,
-                    margin=15,
+                    font_size=12,  # Adjust label font size if necessary
+                    formatter=JsCode("function(value){return value * 100;}")  # Convert proportion to percentage
                 ),
+            ),
+            xaxis_opts=opts.AxisOpts(
+                name="α",  # Here we're setting the x-axis label
+                name_location="middle",
+                name_gap=30
             ),
         )
     )
@@ -84,11 +89,17 @@ def dataset3():
                 pos_top="10%",
             ),
             yaxis_opts=opts.AxisOpts(
-                name_gap=40, 
+                name="Proportion(%)",
+                name_gap=25,  # Adjust this to move the y-axis label to the left
                 axislabel_opts=opts.LabelOpts(
-                    font_size=14,
-                    margin=15,
+                    font_size=12,  # Adjust label font size if necessary
+                    formatter=JsCode("function(value){return value * 100;}")  # Convert proportion to percentage
                 ),
+            ),
+            xaxis_opts=opts.AxisOpts(
+                name="α",  # Here we're setting the x-axis label
+                name_location="middle",
+                name_gap=30
             ),
         )
     )
