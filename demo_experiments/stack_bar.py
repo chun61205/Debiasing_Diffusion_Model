@@ -18,7 +18,7 @@ def dataset1():
                 subtitle="male : female = 1 : 4 (training dataset)",
             ),
             legend_opts=opts.LegendOpts(
-                pos_top="20%",
+                pos_top="15%",
             ),
             yaxis_opts=opts.AxisOpts(
                 name="Proportion(%)",
