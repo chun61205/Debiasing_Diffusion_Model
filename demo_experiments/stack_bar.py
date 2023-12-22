@@ -64,7 +64,7 @@ def dataset2():
                 subtitle="male : female = 4 : 1 (training dataset)",
             ),
             legend_opts=opts.LegendOpts(
-                pos_top="10%",
+                pos_top="15%",
             ),
             yaxis_opts=opts.AxisOpts(
                 name="Proportion(%)",
@@ -81,8 +81,19 @@ def dataset2():
             ),
         )
     )
+    grid = (
+        Grid()
+        .add(
+            chart=b, 
+            grid_opts=opts.GridOpts(
+                pos_bottom="15%",
+                pos_top="30%"
+            )
+        )
+    )
+
     st_pyecharts(
-        b, key="echarts"
+        grid, key="echarts"
     )  # Add key argument to not remount component at every Streamlit run
 
 # Male : Female = 1 : 1
@@ -98,7 +109,7 @@ def dataset3():
                 subtitle="male : female = 4 : 1 (training dataset)",
             ),
             legend_opts=opts.LegendOpts(
-                pos_top="10%",
+                pos_top="15%",
             ),
             yaxis_opts=opts.AxisOpts(
                 name="Proportion(%)",
@@ -115,8 +126,19 @@ def dataset3():
             ),
         )
     )
+    grid = (
+        Grid()
+        .add(
+            chart=b, 
+            grid_opts=opts.GridOpts(
+                pos_bottom="15%",
+                pos_top="30%"
+            )
+        )
+    )
+
     st_pyecharts(
-        b, key="echarts"
+        grid, key="echarts"
     )  # Add key argument to not remount component at every Streamlit run
 
 
