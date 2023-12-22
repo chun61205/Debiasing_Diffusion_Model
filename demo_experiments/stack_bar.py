@@ -42,7 +42,7 @@ def dataset1():
             chart=b, 
             grid_opts=opts.GridOpts(
                 pos_bottom="15%",
-                pos_top="25%"
+                pos_top="30%"
             )
         )
     )
