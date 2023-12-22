@@ -1,7 +1,7 @@
 import streamlit as st
 import pyecharts.options as opts
 
-from pyecharts.charts import Bar
+from pyecharts.charts import Bar, Grid
 from streamlit_echarts import st_pyecharts
 from pyecharts.commons.utils import JsCode
 
@@ -35,8 +35,20 @@ def dataset1():
             ),
         )
     )
+
+    grid = (
+        Grid()
+        .add(
+            chart=b, 
+            grid_opts=opts.GridOpts(
+                pos_bottom="15%",
+                pos_top="25%"
+            )
+        )
+    )
+
     st_pyecharts(
-        b, key="echarts"
+        grid, key="echarts"
     )  # Add key argument to not remount component at every Streamlit run
 
 # Male : Female = 4 : 1
