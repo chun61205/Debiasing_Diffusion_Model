@@ -1,7 +1,9 @@
 import streamlit as st
 import pyecharts.options as opts
+
 from pyecharts.charts import Bar
 from streamlit_echarts import st_pyecharts
+from pyecharts.commons.utils import JsCode
 
 # Male : Female = 1 : 4
 def dataset1():
@@ -19,11 +21,18 @@ def dataset1():
                 pos_top="10%",
             ),
             yaxis_opts=opts.AxisOpts(
+                name="Proportion(%)",
                 name_gap=40, 
                 axislabel_opts=opts.LabelOpts(
                     font_size=14,
                     margin=15,
+                    formatter=JsCode("function(value){return value * 100}")  # Convert proportion to percentage
                 ),
+            ),
+            xaxis_opts=opts.AxisOpts(
+                name=r"\alpha",  # Here we're setting the x-axis label
+                name_location="middle",
+                name_gap=30
             ),
         )
     )
