@@ -33,9 +33,6 @@ def dataset1():
                 name_location="middle",
                 name_gap=30
             ),
-            markline_opts=opts.MarkLineOpts(
-                data=[opts.MarkLineItem(y=0.5, name='Y=50%')]
-            ),
         )
     )
 
