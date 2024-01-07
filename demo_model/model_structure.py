@@ -1,7 +1,7 @@
 import streamlit as st
 
 def render_png_image():
-    image_path = './demo_model/images/De-Biasing Diffusion Model.png'
+    image_path = './demo_model/images/Debiasing Diffusion Model.png'
     st.image(image_path)
 
 # Update the ST_MODEL_STRUCTURE_DEMOS dictionary
