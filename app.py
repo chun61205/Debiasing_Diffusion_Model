@@ -48,6 +48,6 @@ def main():
 
 if __name__ == "__main__":
     st.set_page_config(
-        page_title="De-Biasing Diffusion Model", page_icon=":chart_with_upwards_trend:"
+        page_title="Debiasing Diffusion Model", page_icon=":chart_with_upwards_trend:"
     )
     main()
