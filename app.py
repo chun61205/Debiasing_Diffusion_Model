@@ -43,7 +43,7 @@ def main():
 
     demo()
 
-    st.markdown(f"Credit: {url}")
+    st.markdown(f"{url}")
 
 
 if __name__ == "__main__":

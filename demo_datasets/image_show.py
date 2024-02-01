@@ -35,14 +35,14 @@ def dataset3():
 ST_IMAGE_SHOW_DEMOS = {
     "Male : Female = 1 : 4": (
         dataset1,
-        "https://github.com/switchablenorms/CelebAMask-HQ",
+        "Credit: https://github.com/switchablenorms/CelebAMask-HQ",
     ),
     "Male : Female = 4 : 1": (
         dataset2,
-        "https://github.com/switchablenorms/CelebAMask-HQ",
+        "Credit: https://github.com/switchablenorms/CelebAMask-HQ",
     ),
     "Male : Female = 1 : 1": (
         dataset3,
-        "https://github.com/switchablenorms/CelebAMask-HQ",
+        "Credit: https://github.com/switchablenorms/CelebAMask-HQ",
     )
 }
