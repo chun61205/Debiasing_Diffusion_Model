@@ -33,6 +33,10 @@ def main():
 
             demo, url = selected_demo_dict[selected_page]
 
+            demo()
+
+            st.markdown(f"{url}")
+
     if selected_api == "model":
         st.title("Model")
     elif selected_api == "datasets":
@@ -42,9 +46,7 @@ def main():
     elif selected_api == "examples":
         st.title("Examples")
 
-    demo()
-
-    st.markdown(f"{url}")
+    
 
 
 if __name__ == "__main__":
