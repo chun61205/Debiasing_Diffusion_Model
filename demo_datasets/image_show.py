@@ -9,7 +9,7 @@ def dataset():
     st.image(st.session_state['dataset_image'])
 
 ST_IMAGE_SHOW_DEMOS = {
-    "Datasets": (
+    "datasets": (
         dataset,
         "Credit: https://github.com/switchablenorms/CelebAMask-HQ",
     ),
