@@ -7,6 +7,8 @@ from demo_examples import ST_EXAMPLES_DEMOS
 
 
 def main():
+    has_option = False;
+
     with st.sidebar:
         st.header("Configuration")
         api_options = ("model", "datasets", "experiments", "examples")
@@ -26,16 +28,13 @@ def main():
         page_options = list(api_to_demo_dict.get(selected_api, {}).keys())
     
         if selected_api == "model":
+            has_option = True
             selected_page = st.selectbox(
                 label="Choose an example",
                 options=page_options,
             )
 
             demo, url = selected_demo_dict[selected_page]
-
-            demo()
-
-            st.markdown(f"{url}")
 
     if selected_api == "model":
         st.title("Model")
@@ -46,7 +45,10 @@ def main():
     elif selected_api == "examples":
         st.title("Examples")
 
-    
+    if has_option:
+        demo()
+
+        st.markdown(f"{url}")
 
 
 if __name__ == "__main__":
