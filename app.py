@@ -24,7 +24,8 @@ def main():
         selected_demo_dict = api_to_demo_dict[selected_api]
 
         page_options = list(api_to_demo_dict.get(selected_api, {}).keys())
-
+    
+    if selected_api == "model":
         selected_page = st.selectbox(
             label="Choose an example",
             options=page_options,
