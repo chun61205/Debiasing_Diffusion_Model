@@ -187,7 +187,15 @@ def dataset4():
         grid, key="echarts"
     )  # Add key argument to not remount component at every Streamlit run
 
+def example():
+    st.session_state['example'] = './demo_examples/images/example.jpg'
+    st.image(st.session_state['example'])
+
 ST_STACKBAR_DEMOS = {
+    "Example": (
+        example,
+        None,
+    ),
     "Male : Female = 1 : 4": (
         dataset1,
         None,
