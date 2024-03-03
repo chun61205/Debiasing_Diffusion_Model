@@ -188,7 +188,7 @@ def dataset4():
     )  # Add key argument to not remount component at every Streamlit run
 
 def example():
-    st.session_state['example'] = './demo_examples/images/example.jpg'
+    st.session_state['example'] = './demo_experiments/images/example.jpg'
     st.image(st.session_state['example'])
 
 ST_STACKBAR_DEMOS = {
