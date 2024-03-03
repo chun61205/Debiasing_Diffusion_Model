@@ -105,7 +105,15 @@ def dataset3_0_0_1():
         st.session_state['dataset3_0_0_1_image'] = get_random_image(dataset_path)
     st.image(st.session_state['dataset3_0_0_1_image'])
 
+def example():
+    st.session_state['example'] = './demo_examples/images/example'
+    st.image(st.session_state['example'])
+
 ST_IMAGE_SHOW_DEMOS = {
+    "Example": (
+        example,
+        None,
+    ),
     "Male : Female = 1 : 4, alpha = 0": (
         dataset1_0,
         None,
