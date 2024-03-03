@@ -106,7 +106,7 @@ def dataset3_0_0_1():
     st.image(st.session_state['dataset3_0_0_1_image'])
 
 def example():
-    st.session_state['example'] = './demo_examples/images/example'
+    st.session_state['example'] = './demo_examples/images/example.jpg'
     st.image(st.session_state['example'])
 
 ST_IMAGE_SHOW_DEMOS = {
