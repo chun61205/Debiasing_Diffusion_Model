@@ -17,11 +17,11 @@ def main():
         )
 
         api_to_demo_dict = {
-            "values": ST_VALUE_DEMOS,
-            "model": ST_MODEL_DEMOS,
-            "datasets": ST_DATASETS_DEMOS,
-            "experiments": ST_EXPS_DEMOS,
-            "examples": ST_EXAMPLES_DEMOS,
+            "Values": ST_VALUE_DEMOS,
+            "Model": ST_MODEL_DEMOS,
+            "Datasets": ST_DATASETS_DEMOS,
+            "Experiments": ST_EXPS_DEMOS,
+            "Examples": ST_EXAMPLES_DEMOS,
         }
         selected_demo_dict = api_to_demo_dict[selected_api]
 
@@ -34,15 +34,15 @@ def main():
 
         demo, url = selected_demo_dict[selected_page]
 
-    if selected_api == "value":
+    if selected_api == "Value":
         st.title("Value")
-    elif selected_api == "model":
+    elif selected_api == "Model":
         st.title("Model")
-    elif selected_api == "datasets":
+    elif selected_api == "Datasets":
         st.title("Datasets")
-    elif selected_api == "experiments":
+    elif selected_api == "Experiments":
         st.title("Experiments")
-    elif selected_api == "examples":
+    elif selected_api == "Examples":
         st.title("Examples")
 
     demo()
