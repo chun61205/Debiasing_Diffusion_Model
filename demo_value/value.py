@@ -6,7 +6,7 @@ def render_image():
 
 # Update the ST_MODEL_STRUCTURE_DEMOS dictionary
 ST_VALUE_DISPLAY_DEMOS = {
-    "Value": (
+    "Value Display": (
         render_image,
         "None",
     ),
