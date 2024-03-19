@@ -1,5 +1,6 @@
 import streamlit as st
 
+from demo_value import ST_VALUE_DEMOS
 from demo_model import ST_MODEL_DEMOS
 from demo_experiments import ST_EXPS_DEMOS
 from demo_datasets import ST_DATASETS_DEMOS
