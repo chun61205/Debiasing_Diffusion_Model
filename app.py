@@ -1,7 +1,6 @@
 import streamlit as st
 
-from demo_value import ST_VALUE_DEMOS
-from demo_model import ST_MODEL_DEMOS
+from demo_introduction import ST_INTRODUCTION_DEMOS
 from demo_experiments import ST_EXPS_DEMOS
 from demo_datasets import ST_DATASETS_DEMOS
 from demo_examples import ST_EXAMPLES_DEMOS
@@ -10,15 +9,14 @@ from demo_examples import ST_EXAMPLES_DEMOS
 def main():
     with st.sidebar:
         st.header("Configuration")
-        api_options = ("Values", "Model", "Datasets", "Experiments", "Examples")
+        api_options = ("Introduction", "Datasets", "Experiments", "Examples")
         selected_api = st.selectbox(
             label="Options",
             options=api_options,
         )
 
         api_to_demo_dict = {
-            "Values": ST_VALUE_DEMOS,
-            "Model": ST_MODEL_DEMOS,
+            "Introduction": ST_INTRODUCTION_DEMOS,
             "Datasets": ST_DATASETS_DEMOS,
             "Experiments": ST_EXPS_DEMOS,
             "Examples": ST_EXAMPLES_DEMOS,
@@ -34,10 +32,8 @@ def main():
 
         demo, url = selected_demo_dict[selected_page]
 
-    if selected_api == "Value":
-        st.title("Value")
-    elif selected_api == "Model":
-        st.title("Model")
+    if selected_api == "Introduction":
+        st.title("Introduction")
     elif selected_api == "Datasets":
         st.title("Datasets")
     elif selected_api == "Experiments":

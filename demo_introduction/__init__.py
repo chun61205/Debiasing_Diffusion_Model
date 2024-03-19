@@ -1,0 +1,6 @@
+from .model_introduction import ST_VALUE_DEMOS, ST_MODEL_STRUCTURE_DEMOS
+
+ST_INTRODUCTION_DEMOS = {
+    **ST_VALUE_DEMOS,
+    **ST_MODEL_STRUCTURE_DEMOS,
+}
