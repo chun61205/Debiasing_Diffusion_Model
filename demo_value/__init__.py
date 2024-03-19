@@ -1,0 +1,5 @@
+from .value import ST_MODEL_STRUCTURE_DEMOS
+
+ST_MODEL_DEMOS = {
+    **ST_MODEL_STRUCTURE_DEMOS,
+}

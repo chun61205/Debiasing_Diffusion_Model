@@ -9,13 +9,14 @@ from demo_examples import ST_EXAMPLES_DEMOS
 def main():
     with st.sidebar:
         st.header("Configuration")
-        api_options = ("model", "datasets", "experiments", "examples")
+        api_options = ("value","model", "datasets", "experiments", "examples")
         selected_api = st.selectbox(
             label="Options",
             options=api_options,
         )
 
         api_to_demo_dict = {
+            "value": ST_VALUE_DEMOS,
             "model": ST_MODEL_DEMOS,
             "datasets": ST_DATASETS_DEMOS,
             "experiments": ST_EXPS_DEMOS,
@@ -32,7 +33,9 @@ def main():
 
         demo, url = selected_demo_dict[selected_page]
 
-    if selected_api == "model":
+    if selected_api == "value":
+        st.title("Value")
+    elif selected_api == "model":
         st.title("Model")
     elif selected_api == "datasets":
         st.title("Datasets")
