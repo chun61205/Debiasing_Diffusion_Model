@@ -10,14 +10,14 @@ from demo_examples import ST_EXAMPLES_DEMOS
 def main():
     with st.sidebar:
         st.header("Configuration")
-        api_options = ("value", "model", "datasets", "experiments", "examples")
+        api_options = ("Value", "Model", "Datasets", "Experiments", "Examples")
         selected_api = st.selectbox(
             label="Options",
             options=api_options,
         )
 
         api_to_demo_dict = {
-            "value": ST_VALUE_DEMOS,
+            "values": ST_VALUE_DEMOS,
             "model": ST_MODEL_DEMOS,
             "datasets": ST_DATASETS_DEMOS,
             "experiments": ST_EXPS_DEMOS,
