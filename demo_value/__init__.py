@@ -1,5 +1,0 @@
-from .value import ST_VALUE_DISPLAY_DEMOS
-
-ST_VALUE_DEMOS = {
-    **ST_VALUE_DISPLAY_DEMOS,
-}

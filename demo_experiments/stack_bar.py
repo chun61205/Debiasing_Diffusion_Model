@@ -196,19 +196,19 @@ ST_STACKBAR_DEMOS = {
         example,
         None,
     ),
-    "Male : Female = 1 : 4": (
+    "Experiment 1": (
         dataset1,
         None,
     ),
-    "Male : Female = 4 : 1": (
+    "Experiment 2": (
         dataset2,
         None,
     ),
-    "Male : Female = 1 : 1": (
+    "Experiment 3": (
         dataset3,
         None,
     ),
-    "Black : White = 1 : 1": (
+    "Experiment 4": (
         dataset4,
         None,
     ),
