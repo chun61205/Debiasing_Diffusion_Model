@@ -5,7 +5,7 @@ def render_image():
     st.image(image_path)
 
 # Update the ST_MODEL_STRUCTURE_DEMOS dictionary
-ST_MODEL_STRUCTURE_DEMOS = {
+ST_VALUE_DISPLAY_DEMOS = {
     "Value": (
         render_image,
     ),
