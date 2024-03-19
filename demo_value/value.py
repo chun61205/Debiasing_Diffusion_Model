@@ -8,6 +8,6 @@ def render_image():
 ST_VALUE_DISPLAY_DEMOS = {
     "Value": (
         render_image,
-        None
+        "None"
     ),
 }
