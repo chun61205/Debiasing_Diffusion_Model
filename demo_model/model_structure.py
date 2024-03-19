@@ -8,6 +8,6 @@ def render_png_image():
 ST_MODEL_STRUCTURE_DEMOS = {
     "Display Model Structure": (
         render_png_image,
-        "Stable Diffusion + feature learning indicator = fairness generative model",
+        "Stable Diffusion + feature learning indicator C = fairness generative model",
     ),
 }
