@@ -135,27 +135,45 @@ def pipeline(
     random_seed     : Optional[int] = 0,) -> None:
 
     # Initializeng a normal pipeline
-    """pipe = StableDiffusionPipeline.from_pretrained(pretrained_model_name_or_path = base_model)
-    pipe = merging_lora_with_base( 
-        pipe = pipe,
-        ckpt_dir = ckpt_dir,
-        adapter_name = adapter_name)
-    pipe = pipe.to(device)"""
-    # Initializing an img2img pipeline
-    pipe = StableDiffusionImg2ImgPipeline.from_pretrained(pretrained_model_name_or_path = base_model)
+    pipe = StableDiffusionPipeline.from_pretrained(pretrained_model_name_or_path = base_model)
     pipe = merging_lora_with_base( 
         pipe = pipe,
         ckpt_dir = ckpt_dir,
         adapter_name = adapter_name)
     pipe = pipe.to(device)
 
-    for i in range(77, 200):
+    seed = random.randint(0, 1000)
+
+    torch.manual_seed(seed)
+
+    prompt = 'Four human face'
+    generator = torch.Generator(device = device).manual_seed(seed)
+
+    out = pipe( 
+        prompt = prompt,
+        num_inference_steps = 40,
+        num_images_per_prompt = num_image,
+        generator = generator
+    )
+
+    result : Image.Image = out[0][0]
+    result.convert("RGB").save(f"Debiasing_Diffusion_Model/img/test/img.jpg")
+
+    """# Initializing an img2img pipeline
+    pipe = StableDiffusionImg2ImgPipeline.from_pretrained(pretrained_model_name_or_path = base_model)
+    pipe = merging_lora_with_base( 
+        pipe = pipe,
+        ckpt_dir = ckpt_dir,
+        adapter_name = adapter_name)
+    pipe = pipe.to(device)"""
+
+    """for i in range(77, 200):
         seed = i
 
         torch.manual_seed(seed)
 
         # 決定文字 prompt
-        """prompt = 'Four human face'
+        prompt = 'Four human face'
         generator = torch.Generator(device = device).manual_seed(seed)
 
         out = pipe( 
@@ -163,7 +181,7 @@ def pipeline(
             num_inference_steps = 40,
             num_images_per_prompt = num_image,
             generator = generator
-        )"""
+        )
         
 
         img = Image.open('./test.jpg').resize((512, 512))
@@ -182,7 +200,7 @@ def pipeline(
         )
         for j in range(num_image):
             result : Image.Image = out[0][j]
-            result.convert("RGB").save(f"Debiasing_Diffusion_Model/img/test/img{i * num_image + j}.png")
+            result.convert("RGB").save(f"Debiasing_Diffusion_Model/img/test/img{i * num_image + j}.png")"""
 
     return
 
@@ -194,10 +212,10 @@ def random_check():
 
 
 if __name__ == '__main__':
-    ckpt_dir = 'Debiasing_Diffusion_Model/results/dataset3_different_prompts_debiasing_0_0_5'
+    ckpt_dir = './demo_demos/model'
     base_model = "runwayml/stable-diffusion-v1-5"
     dtype = torch.float32
-    IMAGE_FOLDER = 'mixed_dataset/img'
+    #IMAGE_FOLDER = 'mixed_dataset/img'
 
     if torch.cuda.is_available() is True:
         device = 'cuda'
