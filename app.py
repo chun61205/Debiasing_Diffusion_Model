@@ -3,7 +3,7 @@ import streamlit as st
 from demo_introduction import ST_INTRODUCTION_DEMOS
 from demo_experiments import ST_EXPS_DEMOS
 from demo_datasets import ST_DATASETS_DEMOS
-from demo_examples import ST_EXAMPLES_DEMOS
+from demo_demos import ST_DEMO_DEMOS
 
 
 def main():
