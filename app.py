@@ -19,7 +19,7 @@ def main():
             "Introduction": ST_INTRODUCTION_DEMOS,
             "Datasets": ST_DATASETS_DEMOS,
             "Experiments": ST_EXPS_DEMOS,
-            "Examples": ST_EXAMPLES_DEMOS,
+            "Examples": ST_DEMO_DEMOS,
         }
         selected_demo_dict = api_to_demo_dict[selected_api]
 
