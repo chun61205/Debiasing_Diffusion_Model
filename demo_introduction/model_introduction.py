@@ -11,7 +11,7 @@ def render_model_image():
 ST_DISPLAY_INTRODUCTION_DEMOS = {
     "Value": (
         render_value_image,
-        None,
+        " ",
     ),
     "Display Model Structure": (
         render_model_image,
