@@ -108,50 +108,50 @@ def dataset3_0_0_1():
 ST_IMAGE_SHOW_DEMOS = {
     "Male : Female = 1 : 4, alpha = 0": (
         dataset1_0,
-        None,
+        " ",
     ),
     "Male : Female = 1 : 4, alpha = 0.1": (
         dataset1_0_1,
-        None,
+        " ",
     ),
     "Male : Female = 1 : 4, alpha = 0.05": (
         dataset1_0_0_5,
-        None,
+        " ",
     ),
     "Male : Female = 1 : 4, alpha = 0.01": (
         dataset1_0_0_1,
-        None,
+        " ",
     ),
     "Male : Female = 4 : 1, alpha = 0": (
         dataset2_0,
-        None,
+        " ",
     ),
     "Male : Female = 4 : 1, alpha = 0.1": (
         dataset2_0_1,
-        None,
+        " ",
     ),
     "Male : Female = 4 : 1, alpha = 0.05": (
         dataset2_0_0_5,
-        None,
+        " ",
     ),
     "Male : Female = 4 : 1, alpha = 0.01": (
         dataset2_0_0_1,
-        None,
+        " ",
     ),
     "Male : Female = 1 : 1, alpha = 0": (
         dataset3_0,
-        None,
+        " ",
     ),
     "Male : Female = 1 : 1, alpha = 0.1": (
         dataset3_0_1,
-        None,
+        " ",
     ),
     "Male : Female = 1 : 1, alpha = 0.05": (
         dataset3_0_0_5,
-        None,
+        " ",
     ),
     "Male : Female = 1 : 1, alpha = 0.01": (
         dataset3_0_0_1,
-        None,
+        " ",
     ),
 }

@@ -194,22 +194,22 @@ def example():
 ST_STACKBAR_DEMOS = {
     "Example": (
         example,
-        None,
+        " ",
     ),
     "Experiment 1": (
         dataset1,
-        None,
+        " ",
     ),
     "Experiment 2": (
         dataset2,
-        None,
+        " ",
     ),
     "Experiment 3": (
         dataset3,
-        None,
+        " ",
     ),
     "Experiment 4": (
         dataset4,
-        None,
+        " ",
     ),
 }
