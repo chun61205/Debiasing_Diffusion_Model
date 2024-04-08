@@ -9,7 +9,7 @@ from demo_demos import ST_DEMO_DEMOS
 def main():
     with st.sidebar:
         st.header("Configuration")
-        api_options = ("Introduction", "Datasets", "Experiments", "Examples")
+        api_options = ("Introduction", "Datasets", "Experiments", "Demos")
         selected_api = st.selectbox(
             label="Options",
             options=api_options,
