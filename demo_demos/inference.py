@@ -209,27 +209,3 @@ def random_check():
 
     sample = torch.randn((2, 2))
     print(sample)
-
-
-if __name__ == '__main__':
-    ckpt_dir = './demo_demos/model'
-    base_model = "runwayml/stable-diffusion-v1-5"
-    dtype = torch.float32
-    #IMAGE_FOLDER = 'mixed_dataset/img'
-
-    if torch.cuda.is_available() is True:
-        device = 'cuda'
-    else:
-        device = 'cpu'
-    print('peft_lora_pipeline, device: {}'.format(device))
-    
-    param_pipeline = {
-        'ckpt_dir' : ckpt_dir,
-        'base_model' : base_model,
-        'adapter_name': 'adapter',
-        'device' : device,
-        'strength' : 0.98,
-        'num_image': 5,
-        'dtype' : dtype,
-    }
-    pipeline(**param_pipeline)
