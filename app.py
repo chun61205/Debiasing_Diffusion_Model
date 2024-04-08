@@ -19,7 +19,7 @@ def main():
             "Introduction": ST_INTRODUCTION_DEMOS,
             "Datasets": ST_DATASETS_DEMOS,
             "Experiments": ST_EXPS_DEMOS,
-            "Examples": ST_DEMO_DEMOS,
+            "Demos": ST_DEMO_DEMOS,
         }
         selected_demo_dict = api_to_demo_dict[selected_api]
 
@@ -38,8 +38,8 @@ def main():
         st.title("Datasets")
     elif selected_api == "Experiments":
         st.title("Experiments")
-    elif selected_api == "Examples":
-        st.title("Examples")
+    elif selected_api == "Demos":
+        st.title("Demos")
 
     demo()
 
