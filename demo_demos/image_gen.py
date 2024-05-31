@@ -82,6 +82,7 @@ def reconstruct():
     img = enhancer.enhance(0.5)
     enhancer = ImageEnhance.Color(img)
     img = enhancer.enhance(2.0)
+    img = img.convert("RGB")
     st.image(img)
     if st.button('Reconstruct', key='reconstruct'):
         ckpt_dir = './demo_demos/model'

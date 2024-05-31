@@ -201,9 +201,9 @@ def random_check():
 
     sample = torch.randn((2, 2))
     print(sample)
-
+"""
 if __name__ == "__main__":
-    image = Image.open("./images/base.jpg").convert('RGBA')
+    image = Image.open("./images/base.jpg").convert('RGB')
     ckpt_dir = './model'
     base_model = "runwayml/stable-diffusion-v1-5"
     dtype = torch.float16
@@ -217,3 +217,4 @@ if __name__ == "__main__":
             'dtype' : dtype,
     }
     pipeline_reconstruct(image, **param_pipeline)
+"""
