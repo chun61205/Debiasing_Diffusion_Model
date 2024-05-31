@@ -100,7 +100,7 @@ def reconstruct():
             'adapter_name': 'adapter',
             'device' : device,
             'strength' : 0.98,
-            'num_image': 5,
+            'num_image': 1,
             'dtype' : dtype,
         }
         st.session_state['reconstructed_image'] = pipeline_reconstruct(img, **param_pipeline)
