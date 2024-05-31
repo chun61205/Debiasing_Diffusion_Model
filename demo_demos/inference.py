@@ -201,3 +201,19 @@ def random_check():
 
     sample = torch.randn((2, 2))
     print(sample)
+
+if __name__ == "__main__":
+    image = Image.open("./demo_demos/images/base.jpg").convert('RGBA')
+    ckpt_dir = './demo_demos/model'
+    base_model = "runwayml/stable-diffusion-v1-5"
+    dtype = torch.float16
+    param_pipeline = {
+            'ckpt_dir' : ckpt_dir,
+            'base_model' : base_model,
+            'adapter_name': 'adapter',
+            'device' : 'cuda',
+            'strength' : 0.98,
+            'num_image': 1,
+            'dtype' : dtype,
+    }
+    pipeline_reconstruct(image, **param_pipeline)
