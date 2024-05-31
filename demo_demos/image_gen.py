@@ -14,7 +14,7 @@ from streamlit_drawable_canvas import st_canvas
 
 def generate():
     st.header("Fair Human Face Generator")
-    st.session_state['generated_image'] = Image.new('RGB', (1024, 1024), color='white')
+    st.session_state['generated_image'] = None
     if st.button('Generate', key='generate'):
         ckpt_dir = './demo_demos/model'
         base_model = "runwayml/stable-diffusion-v1-5"
@@ -42,6 +42,7 @@ def generate():
 
 def reconstruct():
     st.header("Fair Human Face Reconstructor")
+    st.session_state['reconstructed_image'] = None
     drawing_mode = st.sidebar.selectbox(
         "Drawing tool:",
         ("freedraw", "line", "rect", "circle", "transform", "polygon", "point"),

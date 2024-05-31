@@ -182,8 +182,6 @@ def pipeline_reconstruct(
 
     prompt = 'A human face'
 
-    img = Image.open('./demo_demos/images/base.jpg').resize((512, 512))
-
     out = pipe( 
         prompt = prompt,
         num_inference_steps = 40,
