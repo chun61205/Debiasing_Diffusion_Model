@@ -146,7 +146,7 @@ def example():
     st.image(st.session_state['example'])
 
 def stat():
-    st.session_state['example'] = './demo_experiments/images/tabel.jpg'
+    st.session_state['example'] = './demo_experiments/images/table.jpg'
     st.image(st.session_state['example'])
 
 ST_STACKBAR_DEMOS = {

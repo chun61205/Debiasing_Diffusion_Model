@@ -83,7 +83,7 @@ def reconstruct():
     enhancer = ImageEnhance.Color(img)
     img = enhancer.enhance(2.0)
     img = img.convert("RGB")
-    
+
     if st.button('Reconstruct', key='reconstruct'):
         ckpt_dir = './demo_demos/model'
         base_model = "runwayml/stable-diffusion-v1-5"
@@ -111,10 +111,10 @@ def reconstruct():
 ST_IMAGE_GEN_DEMOS = {
     "Fair Human Face Generator": (
         generate,
-        " ",
+        "Caution! This model is just a demo. Due to limitation in the training set, some feature may not be displayed in the generated images.",
     ),
     "Fair Human Face Reconstructor": (
         reconstruct,
-        " ",
+        "Caution! This model is just a demo. Due to limitations in the training set, some facial contour features will not be displayed in the generated images.",
     )
 }
