@@ -37,7 +37,8 @@ def generate():
             'dtype' : dtype,
         }
         st.session_state['generated_image'] = pipeline_generate(**param_pipeline)
-    st.image(st.session_state['generated_image'])
+    if(st.session_state['generated_image'] != None):
+        st.image(st.session_state['generated_image'])
 
 def reconstruct():
     st.header("Fair Human Face Reconstructor")
@@ -100,8 +101,9 @@ def reconstruct():
             'num_image': 5,
             'dtype' : dtype,
         }
-        st.session_state['generated_image'] = pipeline_reconstruct(img, **param_pipeline)
-    st.image(st.session_state['generated_image'])
+        st.session_state['reconstructed_image'] = pipeline_reconstruct(img, **param_pipeline)
+    if(st.session_state['reconstructed_image'] != None):
+        st.image(st.session_state['reconstructed_image'])
 
 ST_IMAGE_GEN_DEMOS = {
     "Fair Human Face Generator": (
