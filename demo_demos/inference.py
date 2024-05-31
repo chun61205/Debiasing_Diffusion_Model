@@ -181,7 +181,7 @@ def pipeline_reconstruct(
     generator = torch.Generator(device = device).manual_seed(seed)
 
     prompt = 'A human face'
-
+    img = Image.open("./demo_demos/images/base.jpg").convert('RGBA')
     out = pipe( 
         prompt = prompt,
         num_inference_steps = 40,
