@@ -145,10 +145,18 @@ def example():
     st.session_state['example'] = './demo_experiments/images/example.jpg'
     st.image(st.session_state['example'])
 
+def stat():
+    st.session_state['example'] = './demo_experiments/images/tabel.jpg'
+    st.image(st.session_state['example'])
+
 ST_STACKBAR_DEMOS = {
     "Example": (
         example,
         " ",
+    ),
+    "Statistical Results": (
+        stat,
+        "This table showcases the debiasing effects of the method. The best results are highlighted in bold.",
     ),
     "Experiment 1": (
         dataset1,

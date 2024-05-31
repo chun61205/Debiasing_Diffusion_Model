@@ -83,7 +83,7 @@ def reconstruct():
     enhancer = ImageEnhance.Color(img)
     img = enhancer.enhance(2.0)
     img = img.convert("RGB")
-    st.image(img)
+    
     if st.button('Reconstruct', key='reconstruct'):
         ckpt_dir = './demo_demos/model'
         base_model = "runwayml/stable-diffusion-v1-5"

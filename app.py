@@ -9,7 +9,7 @@ from demo_demos import ST_DEMO_DEMOS
 def main():
     with st.sidebar:
         st.header("Configuration")
-        api_options = ("Introduction", "Datasets", "Experiments", "Demos")
+        api_options = ("Introduction", "Training Sets", "Experiments", "Demos")
         selected_api = st.selectbox(
             label="Options",
             options=api_options,
@@ -17,7 +17,7 @@ def main():
 
         api_to_demo_dict = {
             "Introduction": ST_INTRODUCTION_DEMOS,
-            "Datasets": ST_DATASETS_DEMOS,
+            "Training Sets": ST_DATASETS_DEMOS,
             "Experiments": ST_EXPS_DEMOS,
             "Demos": ST_DEMO_DEMOS,
         }
@@ -34,8 +34,8 @@ def main():
 
     if selected_api == "Introduction":
         st.title("Introduction")
-    elif selected_api == "Datasets":
-        st.title("Datasets")
+    elif selected_api == "Training Sets":
+        st.title("Training Sets")
     elif selected_api == "Experiments":
         st.title("Experiments")
     elif selected_api == "Demos":
