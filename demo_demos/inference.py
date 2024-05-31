@@ -203,7 +203,7 @@ def random_check():
     print(sample)
 
 if __name__ == "__main__":
-    image = Image.open("./images/base.jpg").convert('RGBA')
+    image = Image.open("./images/base.jpg")
     ckpt_dir = './model'
     base_model = "runwayml/stable-diffusion-v1-5"
     dtype = torch.float16
