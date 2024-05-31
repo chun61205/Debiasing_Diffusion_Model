@@ -152,7 +152,7 @@ def pipeline_generate(
         num_images_per_prompt = num_image,
         generator = generator
     )
-
+    torch.cuda.empty_cache()
     result : Image.Image = out[0][0]
     result.convert("RGB")
 
@@ -190,10 +190,10 @@ def pipeline_reconstruct(
         strength = strength,
         generator = generator
     )
-    
+    torch.cuda.empty_cache()
     result : Image.Image = out[0][0]
     result.convert("RGB")
-
+    
     return result
 
 def random_check():
