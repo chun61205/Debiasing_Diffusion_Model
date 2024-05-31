@@ -133,7 +133,7 @@ def pipeline_generate(
     num_image       : Optional[int] = 1,) -> None:
 
     # Initializeng a normal pipeline
-    pipe = StableDiffusionPipeline.from_pretrained(pretrained_model_name_or_path = base_model)
+    pipe = StableDiffusionPipeline.from_pretrained(pretrained_model_name_or_path = base_model, torch_dtype=dtype)
     pipe = merging_lora_with_base( 
         pipe = pipe,
         ckpt_dir = ckpt_dir,
@@ -165,11 +165,11 @@ def pipeline_reconstruct(
     device          : Optional[torch.device] = 'cuda',
     adapter_name    : Optional[str] = 'adapter',
     strength        : float = 0.8,
-    dtype           : Optional[torch.dtype] = torch.float32,
+    dtype           : Optional[torch.dtype] = torch.float16,
     num_image       : Optional[int] = 1,) -> None:
 
     # Initializing an img2img pipeline
-    pipe = StableDiffusionImg2ImgPipeline.from_pretrained(pretrained_model_name_or_path = base_model)
+    pipe = StableDiffusionImg2ImgPipeline.from_pretrained(pretrained_model_name_or_path = base_model, torch_dtype=dtype)
     pipe = merging_lora_with_base( 
         pipe = pipe,
         ckpt_dir = ckpt_dir,
