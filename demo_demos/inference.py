@@ -182,7 +182,7 @@ def pipeline_reconstruct(
 
     prompt = 'A human face'
 
-    img = Image.open('./base.jpg').resize((512, 512))
+    img = Image.open('.demo_demos/images/base.jpg').resize((512, 512))
 
     out = pipe( 
         prompt = prompt,
