@@ -204,7 +204,7 @@ def random_check():
 
 if __name__ == "__main__":
     image = Image.open("./images/base.jpg").convert('RGBA')
-    ckpt_dir = './demo_demos/model'
+    ckpt_dir = './model'
     base_model = "runwayml/stable-diffusion-v1-5"
     dtype = torch.float16
     param_pipeline = {
