@@ -182,18 +182,7 @@ def pipeline_reconstruct(
 
     prompt = 'A human face'
 
-    out = pipe( 
-        prompt = prompt,
-        num_inference_steps = 40,
-        num_images_per_prompt = num_image,
-        generator = generator
-    )
-
-    img = Image.open('./test.jpg').resize((512, 512))
-
-    # 決定文字 prompt
-    prompt = 'A human face'
-    generator = torch.Generator(device = device).manual_seed(seed)
+    img = Image.open('./base.jpg').resize((512, 512))
 
     out = pipe( 
         prompt = prompt,
