@@ -15,7 +15,6 @@ from streamlit_drawable_canvas import st_canvas
 def generate():
     st.header("Fair Human Face Generator")
     st.session_state['generated_image'] = None
-    torch.cuda.empty_cache()
     if st.button('Generate', key='generate'):
         ckpt_dir = './demo_demos/model'
         base_model = "runwayml/stable-diffusion-v1-5"
