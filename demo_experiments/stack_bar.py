@@ -141,52 +141,6 @@ def dataset3():
         grid, key="echarts"
     )  # Add key argument to not remount component at every Streamlit run
 
-# Black : White = 1 : 4
-def dataset4():
-    b = (
-        Bar()
-        .add_xaxis(["0", "0.01", "0.05", "0.1"])  # Alpha values as categories
-        .add_yaxis("Black", [0.13, 0.17, 0.12, 0.16], stack="stack4", color='red')  # Male proportions, stacked
-        .add_yaxis("White", [0.58, 0.57, 0.50, 0.52], stack="stack4", color='blue')  # Female proportions, stacked
-        .add_yaxis("Others", [0.29, 0.26, 0.38, 0.32], stack="stack4", color='green')  # Female proportions, stacked
-        .set_global_opts(
-            title_opts=opts.TitleOpts(
-                title="Black and White Proportions at Different Alpha Values",
-                subtitle="black : white = 1 : 4 (training dataset)",
-            ),
-            legend_opts=opts.LegendOpts(
-                pos_top="15%",
-            ),
-            yaxis_opts=opts.AxisOpts(
-                name="Proportion(%)",
-                name_gap=25,  # Adjust this to move the y-axis label to the left
-                axislabel_opts=opts.LabelOpts(
-                    font_size=12,  # Adjust label font size if necessary
-                    formatter=JsCode("function(value){return value * 100;}")  # Convert proportion to percentage
-                ),
-            ),
-            xaxis_opts=opts.AxisOpts(
-                name="α",  # Here we're setting the x-axis label
-                name_location="middle",
-                name_gap=30
-            ),
-        )
-    )
-    grid = (
-        Grid()
-        .add(
-            chart=b, 
-            grid_opts=opts.GridOpts(
-                pos_bottom="15%",
-                pos_top="30%"
-            )
-        )
-    )
-
-    st_pyecharts(
-        grid, key="echarts"
-    )  # Add key argument to not remount component at every Streamlit run
-
 def example():
     st.session_state['example'] = './demo_experiments/images/example.jpg'
     st.image(st.session_state['example'])
@@ -206,10 +160,6 @@ ST_STACKBAR_DEMOS = {
     ),
     "Experiment 3": (
         dataset3,
-        " ",
-    ),
-    "Experiment 4": (
-        dataset4,
         " ",
     ),
 }

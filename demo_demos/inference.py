@@ -123,16 +123,14 @@ def create_weighted_lora_adapter(
 
     return pipe
 
-def pipeline( 
+def pipeline_generate( 
     ckpt_dir        : str,
     base_model      : str,
     device          : Optional[torch.device] = 'cuda',
     adapter_name    : Optional[str] = 'adapter',
     strength        : float = 0.8,
     dtype           : Optional[torch.dtype] = torch.float32,
-    num_image       : Optional[int] = 1,
-    
-    random_seed     : Optional[int] = 0,) -> None:
+    num_image       : Optional[int] = 1,) -> None:
 
     # Initializeng a normal pipeline
     pipe = StableDiffusionPipeline.from_pretrained(pretrained_model_name_or_path = base_model)
@@ -143,11 +141,10 @@ def pipeline(
     pipe = pipe.to(device)
 
     seed = random.randint(0, 1000)
-
     torch.manual_seed(seed)
-
-    prompt = 'Four human face'
     generator = torch.Generator(device = device).manual_seed(seed)
+
+    prompt = 'A human face'
 
     out = pipe( 
         prompt = prompt,
@@ -157,52 +154,60 @@ def pipeline(
     )
 
     result : Image.Image = out[0][0]
-    result.convert("RGB").save(f"Debiasing_Diffusion_Model/img/test/img.jpg")
+    result.convert("RGB")
 
-    """# Initializing an img2img pipeline
+    return result
+
+def pipeline_reconstruct( 
+    img,
+    ckpt_dir        : str,
+    base_model      : str,
+    device          : Optional[torch.device] = 'cuda',
+    adapter_name    : Optional[str] = 'adapter',
+    strength        : float = 0.8,
+    dtype           : Optional[torch.dtype] = torch.float32,
+    num_image       : Optional[int] = 1,) -> None:
+
+    # Initializing an img2img pipeline
     pipe = StableDiffusionImg2ImgPipeline.from_pretrained(pretrained_model_name_or_path = base_model)
     pipe = merging_lora_with_base( 
         pipe = pipe,
         ckpt_dir = ckpt_dir,
         adapter_name = adapter_name)
-    pipe = pipe.to(device)"""
+    pipe = pipe.to(device)
 
-    """for i in range(77, 200):
-        seed = i
+    seed = random.randint(0, 1000)
+    torch.manual_seed(seed)
+    generator = torch.Generator(device = device).manual_seed(seed)
 
-        torch.manual_seed(seed)
+    prompt = 'A human face'
 
-        # 決定文字 prompt
-        prompt = 'Four human face'
-        generator = torch.Generator(device = device).manual_seed(seed)
+    out = pipe( 
+        prompt = prompt,
+        num_inference_steps = 40,
+        num_images_per_prompt = num_image,
+        generator = generator
+    )
 
-        out = pipe( 
-            prompt = prompt,
-            num_inference_steps = 40,
-            num_images_per_prompt = num_image,
-            generator = generator
-        )
-        
+    img = Image.open('./test.jpg').resize((512, 512))
 
-        img = Image.open('./test.jpg').resize((512, 512))
+    # 決定文字 prompt
+    prompt = 'A human face'
+    generator = torch.Generator(device = device).manual_seed(seed)
 
-        # 決定文字 prompt
-        prompt = 'A human face'
-        generator = torch.Generator(device = device).manual_seed(seed)
+    out = pipe( 
+        prompt = prompt,
+        num_inference_steps = 40,
+        image = img,
+        num_images_per_prompt = num_image,
+        strength = strength,
+        generator = generator
+    )
+    
+    result : Image.Image = out[0][0]
+    result.convert("RGB")
 
-        out = pipe( 
-            prompt = prompt,
-            num_inference_steps = 40,
-            image = img,
-            num_images_per_prompt = num_image,
-            strength = strength,
-            generator = generator
-        )
-        for j in range(num_image):
-            result : Image.Image = out[0][j]
-            result.convert("RGB").save(f"Debiasing_Diffusion_Model/img/test/img{i * num_image + j}.png")"""
-
-    return
+    return result
 
 def random_check():
     torch.manual_seed(42)

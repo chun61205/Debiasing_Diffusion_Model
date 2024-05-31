@@ -1,73 +1,115 @@
 import os
 import random
 import torch
-import streamlit as st
 import cv2
+
+import streamlit as st
 import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
 
-from PIL import Image
-from inference import pipeline
+from PIL import Image, ImageEnhance
+from .inference import pipeline_generate, pipeline_reconstruct
+from streamlit_drawable_canvas import st_canvas
 
-# Helper function to get a random image
-def get_random_image(dataset_path):
-    images = [file for file in os.listdir(dataset_path) if file.endswith('.jpg')]
-    selected_image = random.choice(images) if images else None
-    return os.path.join(dataset_path, selected_image) if selected_image else None
+def generate():
+    st.header("Fair Human Face Generator")
+    st.session_state['generated_image'] = Image.new('RGB', (1024, 1024), color='white')
+    if st.button('Generate', key='generate'):
+        ckpt_dir = './demo_demos/model'
+        base_model = "runwayml/stable-diffusion-v1-5"
+        dtype = torch.float32
+        #IMAGE_FOLDER = 'mixed_dataset/img'
 
-# Dataset 1 function with a button to randomize the image (alpha = 0)
-def dataset1_0():
-    st.header("Male : Female = 1 : 4, alpha = 0")
-    dataset_path = './demo_demos/images/dataset1_0'
-    if st.button('Refresh', key='refresh1_0') or 'dataset1_0_image' not in st.session_state:
-        st.session_state['dataset1_0_image'] = get_random_image(dataset_path)
-    st.image(st.session_state['dataset1_0_image'])
+        if torch.cuda.is_available() is True:
+            device = 'cuda'
+        else:
+            device = 'cpu'
+        print('peft_lora_pipeline, device: {}'.format(device))
+        
+        param_pipeline = {
+            'ckpt_dir' : ckpt_dir,
+            'base_model' : base_model,
+            'adapter_name': 'adapter',
+            'device' : device,
+            'strength' : 0.98,
+            'num_image': 5,
+            'dtype' : dtype,
+        }
+        st.session_state['generated_image'] = pipeline_generate(**param_pipeline)
+    st.image(st.session_state['generated_image'])
 
-def inference():
-    ckpt_dir = './demo_demos/model'
-    base_model = "runwayml/stable-diffusion-v1-5"
-    dtype = torch.float32
-    #IMAGE_FOLDER = 'mixed_dataset/img'
+def reconstruct():
+    st.header("Fair Human Face Reconstructor")
+    drawing_mode = st.sidebar.selectbox(
+        "Drawing tool:",
+        ("freedraw", "line", "rect", "circle", "transform", "polygon", "point"),
+    )
+    stroke_width = st.sidebar.slider("Stroke width: ", 1, 10, 3)
+    if drawing_mode == "point":
+        point_display_radius = st.sidebar.slider("Point display radius: ", 1, 10, 3)
+    stroke_color = st.sidebar.color_picker("Stroke color hex: ")
+    bg_image = Image.open("./demo_demos/images/base.jpg").convert('RGBA')
+    realtime_update = st.sidebar.checkbox("Update in realtime", True)
 
-    if torch.cuda.is_available() is True:
-        device = 'cuda'
+    # Create a canvas component
+    canvas_result = st_canvas(
+        fill_color="rgba(255, 255, 255, 0.3)",
+        stroke_width=stroke_width,
+        stroke_color=stroke_color,
+        background_image=bg_image,
+        update_streamlit=realtime_update,
+        height = 512,
+        width = 512,
+        drawing_mode=drawing_mode,
+        point_display_radius=point_display_radius if drawing_mode == "point" else 0,
+        display_toolbar=st.sidebar.checkbox("Display toolbar", True),
+        key="full_app",
+    )
+    if canvas_result.image_data is not None:
+        canvasImg = Image.fromarray(canvas_result.image_data)
+        img = Image.alpha_composite(bg_image, canvasImg)
     else:
-        device = 'cpu'
-    print('peft_lora_pipeline, device: {}'.format(device))
+        img = bg_image
     
-    param_pipeline = {
-        'ckpt_dir' : ckpt_dir,
-        'base_model' : base_model,
-        'adapter_name': 'adapter',
-        'device' : device,
-        'strength' : 0.98,
-        'num_image': 5,
-        'dtype' : dtype,
-    }
-    pipeline(**param_pipeline)
+    # Adjusting
+    enhancer = ImageEnhance.Brightness(img)
+    img = enhancer.enhance(0.7) 
+    enhancer = ImageEnhance.Contrast(img)
+    img = enhancer.enhance(0.5)
+    enhancer = ImageEnhance.Color(img)
+    img = enhancer.enhance(2.0)
+    st.image(img)
+    if st.button('Reconstruct', key='reconstruct'):
+        ckpt_dir = './demo_demos/model'
+        base_model = "runwayml/stable-diffusion-v1-5"
+        dtype = torch.float32
 
-def reconstruction():
-    st.header("Human Face Reconstruction")
-    canvas_result = st.camera_input("Take a picture or draw on the canvas")
-
-    if canvas_result:
-        # Convert the camera input to a numpy array
-        img = np.frombuffer(canvas_result.getvalue(), np.uint8)
-        img = cv2.imdecode(img, cv2.IMREAD_COLOR)
-
-        # Display the image on the canvas
-        st.image(img, channels="BGR")
-
-        if st.button("Generate"):
-            # Code to generate an image using a model based on the user's drawing
-            # Replace this with your own model implementation
-            generated_image = img  # Example: Just passing the input image for now
-
-            # Display the generated image
-            st.image(generated_image, channels="BGR", caption="Generated Image")
+        if torch.cuda.is_available() is True:
+            device = 'cuda'
+        else:
+            device = 'cpu'
+        print('peft_lora_pipeline, device: {}'.format(device))
+        
+        param_pipeline = {
+            'ckpt_dir' : ckpt_dir,
+            'base_model' : base_model,
+            'adapter_name': 'adapter',
+            'device' : device,
+            'strength' : 0.98,
+            'num_image': 5,
+            'dtype' : dtype,
+        }
+        st.session_state['generated_image'] = pipeline_reconstruct(img, **param_pipeline)
+    st.image(st.session_state['generated_image'])
 
 ST_IMAGE_GEN_DEMOS = {
-    "Male : Female = 1 : 4, alpha = 0": (
-        dataset1_0,
+    "Fair Human Face Generator": (
+        generate,
+        " ",
+    ),
+    "Fair Human Face Reconstructor": (
+        reconstruct,
         " ",
     )
 }
